@@ -1,0 +1,465 @@
+
+.container, 
+.group__face,
+.group__hair,
+.group__nose,
+.group__ear-right,
+.group__ear-left,
+.group__neck,
+.group__body,
+.profile__group,
+.group__fringe,
+.group__eye,
+.group__tongue,
+.group__mouth,
+.group__eyebrown, .group__blush{
+    position: absolute;
+}
+
+.profile__container{
+    width: 200px;
+    height: 200px;
+}
+.profile{
+    position: relative;
+    margin: 25px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #fff;
+    border-radius: 200px;
+    overflow: hidden;
+    background: #E8E9EB;
+    box-shadow: 1px 1px 10px 0.5px;
+}
+.profile.skeleton-mode{
+    background: black;
+}
+.profile__group{
+    left: -7px;
+}
+.group__face{
+    border-radius: 100px;
+    z-index: 20;
+    top: 50px;
+    left: 70px;
+    width: 80px;
+    height: 100px;
+    background: #F0BEAF;
+}
+.group__face.skeleton-mode{
+    background: white;
+    transition: background 2s linear 1s;
+}
+.group__hair{
+    z-index: 3;
+    top: 30px;
+    left: 50px;
+    width: 120px;
+    height: 95px;
+    border-radius: 100px 100px 0 0;
+    background: #ffa500;
+}
+.group__hair.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-one{
+    position: absolute;
+    z-index: 99;
+    top: 44px;
+    left: 64px;
+    width: 35px;
+    height: 35px;
+    background: #ffa500;
+    border-radius: 30px;
+}
+.group__hair--part-one.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-two{
+    position: absolute;
+    z-index: 99;
+    top: 50px;
+    left: 89px;
+    width: 20px;
+    height: 20px;
+    background: #ffa500;
+    border-radius: 30px;
+}
+.group__hair--part-two.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-tree{
+    position: absolute;
+    z-index: 1;
+    top: 80px;
+    left: 54px;
+    width: 34px;
+    height: 60px;
+    background: #ffa500;
+    border-radius: 20px;
+    transform: rotate(22deg);
+}
+.group__hair--part-tree.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-four{
+    position: absolute;
+    z-index: 1;
+    top: 80px;
+    left: 132px;
+    width: 34px;
+    height: 60px;
+    background: #ffa500;
+    border-radius: 20px;
+    transform: rotate(-28deg);
+}
+.group__hair--part-four.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-five{
+    position: absolute;
+    z-index: 1;
+    top: 96px;
+    left: 41px;
+    width: 22px;
+    height: 24px;
+    background: #ffa500;
+    border-radius: 22px;
+    transform: rotate(-10deg);
+}
+.group__hair--part-five.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-six{
+    position: absolute;
+    z-index: 1;
+    top: 96px;
+    left: 157px;
+    width: 22px;
+    height: 24px;
+    background: #ffa500;
+    border-radius: 22px;
+    transform: rotate(10deg);
+}
+.group__hair--part-six.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-seven{
+    position: absolute;
+    z-index: 1;
+    top: 87px;
+    left: 44px;
+    width: 12px;
+    height: 12px;
+    background: #ffa500;
+    border-radius: 12px;
+}
+.group__hair--part-seven.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.group__hair--part-eight{
+    position: absolute;
+    z-index: 1;
+    top: 85px;
+    left: 162px;
+    width: 12px;
+    height: 12px;
+    background: #ffa500;
+    border-radius: 10px;
+}
+.group__hair--part-eight.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+.grop__hair:before, .group__hair:after{
+    position: absolute;
+    content: '';
+}
+.group__ear-right{
+    z-index: 4;
+    top: 86px;
+    left: 61px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #F0BEAF;
+}
+.group__ear-right.skeleton-mode{
+    background: #fff;
+    transition: background 2s linear 1.2s;
+}
+.group__ear-right:before{
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #ED8A80;
+}
+.group__ear-right.skeleton-mode:before{
+    background: #d6d6d6;
+    transition: background 2s linear 1.2s;
+}
+.group__ear-right__earing{
+    position: absolute;
+    left: 5px;
+    top: 24.5px;
+    width: 3.2px;
+    height: 9px;
+    border-radius: 1.2px;
+    background-color: gray;
+}
+.group__ear-right__earing.skeleton-mode{
+    background-color: gold;
+    transition: background 1s linear 1.2s;
+}
+.group__ear-left{
+    z-index: 4;
+    top: 86px;
+    left: 129px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #F0BEAF;
+}
+.group__ear-left.skeleton-mode{
+    background: #fff;
+    transition: background 2s linear 1.2s;
+}
+.group__ear-left:before{
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #ED8A80;
+}
+.group__ear-left.skeleton-mode:before{
+    background: #d6d6d6;
+    transition: background 2s linear 1.2s;
+}
+.group__ear-left__earing{
+    position: absolute;
+    left: 22px;
+    top: 24.5px;
+    width: 3.2px;
+    height: 9px;
+    border-radius: 1.2px;
+    background-color: gray;
+}
+.group__ear-left__earing.skeleton-mode{
+    background: gold;
+    transition: background 1s linear 1.2s;
+}
+.group__fringe--part-one {
+    position: absolute;
+    z-index: 99;
+    top: 53px;
+    left: 95px;
+    width: 69px;
+    height: 35px;
+    background: #ffa500;
+    border-radius: 0 0 100px 100px;
+    transform: rotate(30deg);
+}
+.group__fringe--part-one.skeleton-mode{
+    opacity: 0.01;
+    transition: opacity 0s linear 0s;
+}
+/* .group__fringe--part-one:before{
+    transform: rotate(30deg);
+}
+.group__fringe--part-one:before:before{
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: -24px;
+    width: 57px;
+    height: 50px;
+    background: red;
+    border-radius: 57px;
+    transform: rotate(10deg);
+} */
+.group__eyebrown{
+    z-index: 300;
+    top: 95px;
+    left: 74px;
+    width: 20px;
+    height: 2px;
+    background: #ffa500;
+    border-radius: 3px; 
+}
+.group__eyebrown.skeleton-mode{
+    opacity: 0;
+    transition: opacity 1s linear 2s;
+}
+.group__eyebrown:before{
+    position: absolute;
+    content: '';
+    left: 50px;
+    width: 20px;
+    height: 2px;
+    background: #ffa500;
+    border-radius: 3px;
+}
+.group__eyebrown.skeleton-mode:before{
+    opacity: 0;
+    transition: opacity 1s linear 2s;
+}
+.group__eye{
+    z-index: 30;
+    top: 100px;
+    left: 80px;
+    width: 10px;
+    height: 10px;
+    /* #18d3af  */
+    background: #424B54;
+    border-radius: 10px;
+}
+.group__eye.skeleton-mode{
+    box-shadow: 3px 1px #d6d6d6;
+    transition: box-shadow 1s linear 3.2s;
+}
+.group__eye:before{
+    position: absolute;
+    content: '';
+    left: 50px;
+    width: 10px;
+    height: 10px;
+    background: #424B54;
+    border-radius: 10px;
+}
+.group__eye.skeleton-mode:before{
+    box-shadow: 3px 1px #d6d6d6;
+    transition: box-shadow 1s linear 3.2s;
+}
+.group__blush{
+    z-index: 999;
+    top: 116px;
+    left: 77px;
+    width: 10px;
+    height: 7px;
+    background: #E3879E;
+    border-radius: 10px;
+    opacity: 0.4;
+}
+.group__blush.skeleton-mode{
+    opacity: 0;
+    transition: opacity 2s linear 1.2s;
+}
+.group__blush:before{
+    position: absolute;
+    content: '';
+    left: 58px;
+    width: 10px;
+    height: 7px;
+    background: #E3879E;
+    border-radius: 10px;
+}
+.group__nose{
+    z-index: 20;
+    top: 100px;
+    left: 107px;
+    width: 8px;
+    height: 14px;
+    background: #DB9B99;
+    border-radius: 100px;
+}
+.group__nose.skeleton-mode{
+    background-color: #424B54;
+    transition: background-color 1s linear 1.2s;
+    width: 4px;
+    height: 10px;
+    top: 103px;
+    left: 107px;
+    border-radius: 5px;
+    box-shadow: 1px 1px #d6d6d6; 
+}
+.group__nose-part-one.skeleton-mode{
+    position: absolute;
+    background: #424B54;
+    transition: background-color 1s linear 0.2s;
+    z-index: 20;
+    top: 103px;
+    left: 114px;
+    width: 4px;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px #d6d6d6; 
+}
+.group__mouth{
+    z-index: 20;
+    top: 120px;
+    left: 97px;
+    width: 30px;
+    height: 15px;
+    border-radius: 0 0 100px 100px;
+    background: #424B54;
+    overflow: hidden;
+}
+.group__tongue{
+    top: 5px;
+    left: 8px;
+    width: 30px;
+    height: 20px;
+    background: #f254a9;
+    border-radius: 30px;
+}
+.group__neck{
+    z-index: 13;
+    width: 30px;
+    height: 30px;
+    background: #F0BEAF;
+    top: 130px;
+    left: 97px;
+    border-radius: 30px;
+}
+.group__neck.skeleton-mode{
+    background: white;
+    transition: 2s linear 1.2s;
+}
+.group__skull-chest__part-one.skeleton-mode{
+    position: absolute;
+    top: 130px;
+    left: 97px;
+    
+}
+.group__skull.skeleton-mode{
+    z-index: 14;
+    position: absolute;
+    background: white;
+    width: 8px;
+    height: 50px;
+    top: 156px;
+    left: 108px;
+    border-radius: 8px;
+}
+.group__body{
+   z-index: 10;
+   top: 150px;
+   left: 60px;
+   width: 100px;
+   height: 150px;
+   background: #133337;
+   border-radius: 100px;
+}
+
+
+
+
+
+
+
+
