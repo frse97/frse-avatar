@@ -4,8 +4,7 @@ This Project was made based on an [article](https://blog.prototypr.io/how-i-star
 
 ## My Personal Avatar
 
-<img src="./public/avatar.png"
-     alt="Frse Avatar" />
+![alt text](https://github.com/frse97/frse-avatar/blob/master/public/avatar.PNG?raw=true)
 
 Install dependencies 
 ```sh
