@@ -38,8 +38,4 @@ const FrseAvatar: React.FC = props => {
   );
 };
 
-FrseAvatar.defaultProps = {
-  theme: "default"
-};
-
 export default FrseAvatar;

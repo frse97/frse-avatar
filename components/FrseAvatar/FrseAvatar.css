@@ -1,5 +1,3 @@
-
-.container, 
 .group__face,
 .group__hair,
 .group__nose,
@@ -31,9 +29,6 @@
     background: #E8E9EB;
     box-shadow: 1px 1px 10px 0.5px;
 }
-.profile.skeleton-mode{
-    background: black;
-}
 .profile__group{
     left: -7px;
 }
@@ -45,10 +40,6 @@
     width: 80px;
     height: 100px;
     background: #F0BEAF;
-}
-.group__face.skeleton-mode{
-    background: white;
-    transition: background 2s linear 1s;
 }
 .group__hair{
     z-index: 3;
@@ -86,10 +77,6 @@
     height: 20px;
     background: #ffa500;
     border-radius: 30px;
-}
-.group__hair--part-two.skeleton-mode{
-    opacity: 0.01;
-    transition: opacity 0s linear 0s;
 }
 .group__hair--part-tree{
     position: absolute;
@@ -278,20 +265,6 @@
     opacity: 0.01;
     transition: opacity 0s linear 0s;
 }
-/* .group__fringe--part-one:before{
-    transform: rotate(30deg);
-}
-.group__fringe--part-one:before:before{
-    position: absolute;
-    content: '';
-    top: 5px;
-    left: -24px;
-    width: 57px;
-    height: 50px;
-    background: red;
-    border-radius: 57px;
-    transform: rotate(10deg);
-} */
 .group__eyebrown{
     z-index: 300;
     top: 95px;
@@ -425,26 +398,6 @@
     top: 130px;
     left: 97px;
     border-radius: 30px;
-}
-.group__neck.skeleton-mode{
-    background: white;
-    transition: 2s linear 1.2s;
-}
-.group__skull-chest__part-one.skeleton-mode{
-    position: absolute;
-    top: 130px;
-    left: 97px;
-    
-}
-.group__skull.skeleton-mode{
-    z-index: 14;
-    position: absolute;
-    background: white;
-    width: 8px;
-    height: 50px;
-    top: 156px;
-    left: 108px;
-    border-radius: 8px;
 }
 .group__body{
    z-index: 10;
