@@ -9,6 +9,10 @@ const FrseAvatarGenerator = () => {
   const [currentBodyColor, setCurrentBodyColor] = useState("#133337");
   const [currentMouthColor, setCurrentMouthColor] = useState("#424B54");
   const [currentTongueColor, setCurrentTongueColor] = useState("#f254a9");
+  const [currentEyesColor, setCurrentEyesColor] = useState("#3c87b9");
+  const [currentEyeBrownColor, setCurrentEyeBrownColor] = useState("#ffa500");
+  const [currentNoseColor, setCurrentNoseColor] = useState("#DB9B99");
+  const [currentBlushColor, setCurrentBlushColor] = useState("#f254a9");
 
   const handleSkinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.persist();
@@ -30,6 +34,26 @@ const FrseAvatarGenerator = () => {
     setCurrentTongueColor(e.target.value);
   };
 
+  const handleEyesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setCurrentEyesColor(e.target.value);
+  }
+
+  const handleEyeBrownChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setCurrentEyeBrownColor(e.target.value);
+  }
+
+  const handleNoseChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setCurrentNoseColor(e.target.value);
+  }
+
+  const handleBlushChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.persist();
+    setCurrentBlushColor(e.target.value);
+  }
+
   return (
     <div>
       <Head>
@@ -43,6 +67,10 @@ const FrseAvatarGenerator = () => {
           bodyColor={currentBodyColor}
           mouthColor={currentMouthColor}
           tongueColor={currentTongueColor}
+          eyesColor={currentEyesColor}
+          eyebrownColor={currentEyeBrownColor}
+          blushColor={currentBlushColor}
+          noseColor={currentNoseColor}
         />
         <div className="sidebar">
           <h2>Avatar.edit</h2>
@@ -69,6 +97,30 @@ const FrseAvatarGenerator = () => {
             name="Tongue"
             value={currentTongueColor}
             onChange={handleTongueChange}
+          />
+          <ColorPicker
+            id="eyes"
+            name="Eyes"
+            value={currentEyesColor}
+            onChange={handleEyesChange}
+          />
+          <ColorPicker
+            id="eyebrown"
+            name="Eyebrown"
+            value={currentEyeBrownColor}
+            onChange={handleEyeBrownChange}
+          />
+          <ColorPicker
+            id="nose"
+            name="Nose"
+            value={currentNoseColor}
+            onChange={handleNoseChange}
+          />
+          <ColorPicker
+            id="blush"
+            name="Blush"
+            value={currentBlushColor}
+            onChange={handleBlushChange}
           />
         </div>
       </main>

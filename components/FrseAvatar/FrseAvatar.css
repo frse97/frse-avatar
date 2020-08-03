@@ -275,10 +275,6 @@
     background: #ffa500;
     border-radius: 3px; 
 }
-.group__eyebrown.skeleton-mode{
-    opacity: 0;
-    transition: opacity 1s linear 2s;
-}
 .group__eyebrown:before{
     position: absolute;
     content: '';
@@ -287,10 +283,6 @@
     height: 2px;
     background: #ffa500;
     border-radius: 3px;
-}
-.group__eyebrown.skeleton-mode:before{
-    opacity: 0;
-    transition: opacity 1s linear 2s;
 }
 .group__eye{
     z-index: 30;
@@ -302,10 +294,6 @@
     background: #424B54;
     border-radius: 10px;
 }
-.group__eye.skeleton-mode{
-    box-shadow: 3px 1px #d6d6d6;
-    transition: box-shadow 1s linear 3.2s;
-}
 .group__eye:before{
     position: absolute;
     content: '';
@@ -314,10 +302,6 @@
     height: 10px;
     background: #424B54;
     border-radius: 10px;
-}
-.group__eye.skeleton-mode:before{
-    box-shadow: 3px 1px #d6d6d6;
-    transition: box-shadow 1s linear 3.2s;
 }
 .group__blush{
     z-index: 999;
@@ -328,10 +312,6 @@
     background: #E3879E;
     border-radius: 10px;
     opacity: 0.4;
-}
-.group__blush.skeleton-mode{
-    opacity: 0;
-    transition: opacity 2s linear 1.2s;
 }
 .group__blush:before{
     position: absolute;
@@ -350,28 +330,6 @@
     height: 14px;
     background: #DB9B99;
     border-radius: 100px;
-}
-.group__nose.skeleton-mode{
-    background-color: #424B54;
-    transition: background-color 1s linear 1.2s;
-    width: 4px;
-    height: 10px;
-    top: 103px;
-    left: 107px;
-    border-radius: 5px;
-    box-shadow: 1px 1px #d6d6d6; 
-}
-.group__nose-part-one.skeleton-mode{
-    position: absolute;
-    background: #424B54;
-    transition: background-color 1s linear 0.2s;
-    z-index: 20;
-    top: 103px;
-    left: 114px;
-    width: 4px;
-    height: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 1px #d6d6d6; 
 }
 .group__mouth{
     z-index: 20;
