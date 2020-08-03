@@ -37,7 +37,7 @@ const FrseAvatarGenerator = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <FrseAvatar />
+        {/* <FrseAvatar /> */}
         <Avatar
           skinColor={currentSkinColor}
           bodyColor={currentBodyColor}
@@ -45,6 +45,7 @@ const FrseAvatarGenerator = () => {
           tongueColor={currentTongueColor}
         />
         <div className="sidebar">
+          <h2>Avatar.edit</h2>
           <ColorPicker
             id="skin"
             name="Skin"

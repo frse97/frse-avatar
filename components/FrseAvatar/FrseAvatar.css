@@ -20,7 +20,8 @@
 }
 .profile{
     position: relative;
-    margin: 25px;
+    margin: 100px auto;
+    transform: scale(1.5, 1.5);
     width: 200px;
     height: 200px;
     border: 2px solid #fff;

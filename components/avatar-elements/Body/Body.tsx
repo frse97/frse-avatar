@@ -4,10 +4,12 @@ import { IBody } from '../../../model/avatar.model';
 
 const BodyWrapper: React.FC<IBody> = props => {
     const { background } = props;
-    return <Body {...props} />;
+    return <Body className={"avatar-component"} {...props} />;
 }
 
-const Body = styled.div`
+const Body = styled.div.attrs(internalProps => {
+  className: internalProps.className
+})`
   width: 100px;
   height: 150px;
   top: 150px;

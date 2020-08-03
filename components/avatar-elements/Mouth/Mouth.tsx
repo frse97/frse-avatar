@@ -5,13 +5,15 @@ import { IMouth } from "../../../model/avatar.model";
 const MouthWrapper: React.FC<IMouth> = props => {
   const { background, tongueColor } = props;
   return (
-    <Mouth {...props}>
-      <Tongue {...props} />
+    <Mouth className={'avatar-component'} {...props}>
+      <Tongue className={'avatar-component'} {...props} />
     </Mouth>
   );
 };
 
-const Mouth = styled.div`
+const Mouth = styled.div.attrs(internalProps => {
+  className: internalProps.className
+})`
   width: 30px;
   height: 15px;
   top: 120px;
@@ -23,7 +25,9 @@ const Mouth = styled.div`
   position: absolute;
 `;
 
-const Tongue = styled.div`
+const Tongue = styled.div.attrs(internalProps => {
+  className: internalProps.className
+})`
   width: 30px;
   height: 20px;
   top: 5px;

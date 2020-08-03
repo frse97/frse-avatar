@@ -4,10 +4,12 @@ import { INeck } from '../../../model/avatar.model';
 
 const NeckWrapper: React.FC<INeck> = props => {
     const { background } = props;
-    return <Neck {...props} />;
+    return <Neck className={'avatar-component'} {...props} />;
 }
 
-const Neck = styled.div`
+const Neck = styled.div.attrs(internalProps => {
+  className: internalProps.className
+})`
   width: 30px;
   height: 30px;
   top: 130px;
