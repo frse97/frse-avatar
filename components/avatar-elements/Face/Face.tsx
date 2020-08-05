@@ -4,7 +4,6 @@ import { IFace } from '../../../model/avatar.model';
 
 const FaceWrapper: React.FC<IFace> = props => {
     const { background } = props;
-    console.log(props);
     return <Face className={'avatar-component'} {...props} />;
 }
 
