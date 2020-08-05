@@ -18,6 +18,7 @@ const Nose = styled.div.attrs(internalProps => {
   z-index: 20;
   background: ${props => props.background};
   position: absolute;
+  box-sizing: border-box;
 `;
 
 export default NoseWrapper;

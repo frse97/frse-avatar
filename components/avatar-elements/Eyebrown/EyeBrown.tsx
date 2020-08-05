@@ -18,6 +18,7 @@ const EyeBrown = styled.div.attrs(internalProps => {
   z-index: 90;
   background: ${props => props.background};
   position: absolute;
+  box-sizing: border-box;
 
   &:before{
     width: 20px;

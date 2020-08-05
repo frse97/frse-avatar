@@ -18,6 +18,7 @@ const Body = styled.div.attrs(internalProps => {
   z-index: 10;
   background: ${props => props.background};
   position: absolute;
+  box-sizing: border-box;
 `;
 
 export default BodyWrapper;

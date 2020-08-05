@@ -14,25 +14,6 @@
     position: absolute;
 }
 
-.profile__container{
-    width: 200px;
-    height: 200px;
-}
-.profile{
-    position: relative;
-    margin: 100px auto;
-    transform: scale(1.5, 1.5);
-    width: 200px;
-    height: 200px;
-    border: 2px solid #fff;
-    border-radius: 200px;
-    overflow: hidden;
-    background: #E8E9EB;
-    box-shadow: 1px 1px 10px 0.5px;
-}
-.profile__group{
-    left: -7px;
-}
 .group__face{
     border-radius: 100px;
     z-index: 20;

@@ -23,6 +23,7 @@ const Mouth = styled.div.attrs(internalProps => {
   background: ${props => props.background};
   overflow: hidden;
   position: absolute;
+  box-sizing: border-box;
 `;
 
 const Tongue = styled.div.attrs(internalProps => {

@@ -18,6 +18,7 @@ const Blush = styled.div.attrs(internalProps => {
   z-index: 90;
   background: ${props => props.background};
   position: absolute;
+  box-sizing: border-box;
   opacity: 0.4;
 
   &:before{

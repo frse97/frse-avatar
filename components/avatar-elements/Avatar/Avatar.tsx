@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Face from "../Face/Face";
 import Neck from "../Neck/Neck";
 import { Body } from "../Body";
@@ -8,20 +8,28 @@ import { Eyes } from "../Eyes";
 import { Blush } from "../Blush";
 import { EyeBrown } from "../Eyebrown";
 import { Nose } from "../Nose";
+import { AppContext } from "../../../context/appContext";
 
 const Avatar: React.FC<IAvatarProps> = props => {
-  const { skinColor, bodyColor, mouthColor, tongueColor, eyesColor, eyebrownColor, noseColor, blushColor } = props;
+  const { currentBodyColor,
+    currentSkinColor,
+    currentNoseColor,
+    currentMouthColor,
+    currentTongueColor,
+    currentEyesColor,
+    currentEyeBrownColor,
+    currentBlushColor } = useContext(AppContext);
 
   return (
-    <div className={`profile`}>
-      <Face background={skinColor} />
-      <EyeBrown background={eyebrownColor} />
-      <Eyes background={eyesColor} />
-      <Nose background={noseColor} />
-      <Blush background={blushColor} />
-      <Mouth background={mouthColor} tongueColor={tongueColor} />
-      <Neck background={skinColor} />
-      <Body background={bodyColor} />
+    <div className={`avatar`}>
+      <Face background={currentSkinColor} />
+      <EyeBrown background={currentEyeBrownColor} />
+      <Eyes background={currentEyesColor} />
+      <Nose background={currentNoseColor} />
+      <Blush background={currentBlushColor} />
+      <Mouth background={currentMouthColor} tongueColor={currentTongueColor} />
+      <Neck background={currentSkinColor} />
+      <Body background={currentBodyColor} />
     </div>
   );
 };

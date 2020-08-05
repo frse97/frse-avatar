@@ -19,6 +19,7 @@ const Eyes = styled.div.attrs(internalProps => {
   z-index: 30;
   background: ${props => props.background};
   position: absolute;
+  box-sizing: border-box;
 
   &:before{
       width: 10px;

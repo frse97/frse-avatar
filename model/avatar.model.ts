@@ -1,12 +1,5 @@
 export interface IAvatarProps {
-  skinColor: string;
-  bodyColor: string;
-  mouthColor: string;
-  tongueColor: string;
-  eyesColor: string;
-  eyebrownColor: string;
-  noseColor: string;
-  blushColor: string;
+  
 }
 export interface IBody extends GenericElement{}
 export interface IFace extends GenericElement{}
