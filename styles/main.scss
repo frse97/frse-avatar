@@ -44,7 +44,7 @@ main{
   // TODO: Will be editable
   width: 200px;
   height: 200px;
-  border: 1px solid var(--secondary-color);
+  border: toRem(1.6) solid var(--bg-color);
   border-radius: 200px;
   overflow: hidden;
   background: #E8E9EB;
