@@ -1,26 +1,46 @@
+@import '../../styles/theming.scss';
+@import '../../styles/utils.scss';
+
+//TODO: 
+// Does variables influence perfomance? 
+
+$sett-width-collapsed: toRem(60);
+$sett-height-collapsed: $sett-width-collapsed;
+$sett-icon-wrapper-width: toRem(50);
+$sett-icon-wrapper-height: $sett-icon-wrapper-width;
+$sett-icon-width: toRem(36);
+$sett-icon-height: $sett-icon-width;
+$sett-actions-width: $ideal-width;
+$sett-actions-height: $ideal-height;
+$sett-actions-icon-width: toRem(30);
+$sett-actions-icon-height: $sett-actions-icon-width;
+$sett-actions-icon-width-big: toRem(48);
+$sett-actions-icon-height-big: $sett-actions-icon-width-big;
+
 .settings {
-  height: 60px;
-  margin-bottom: 12px;
+  height: $sett-height-collapsed;
+  margin-bottom: toRem(12);
   position: fixed;
   bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 900px;
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  z-index: 900;
+  background-color: var(--bg-color);
+  -webkit-box-shadow: 0px 0px toRem(8) 0px var(--bg-color-inverted);
+  -moz-box-shadow: 0px 0px toRem(8) 0px var(--bg-color-inverted);
+  box-shadow: 0px 0px toRem(8) 0px var(--bg-color-inverted);
 
   &.--collapsed {
-    width: 60px;
-    border-radius: 60px;
+    width: $sett-width-collapsed;
+    border-radius: $sett-width-collapsed $sett-width-collapsed;
     transition: width 2s;
   }
 
   &.--expanded {
       width: auto;
-      border-radius: 10px;
-      padding: 4px 6px;
+      border-radius: $pd-md;
+      padding: $pd-xs $pd-sm;
       transition: width 2s;
   }
 
@@ -30,26 +50,26 @@
 
   // Icon Wrapper
   &-icon {
-    width: 50px;
-    height: 50px;
+    width: $sett-icon-wrapper-width;
+    height: $sett-icon-wrapper-height;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    background-color: transparent;
     border-radius: inherit;
-    // border: 1px solid;
 
     &.--expanded{
-        margin-right: 12px;
-    }
-    &.--collapsed {
-
+        margin-right: $mg-md;
     }
 
     > svg {
-      height: 36px;
-      width: 36px;
+      width: $sett-icon-width;
+      height: $sett-icon-height;
+      color: var(--font-color);
 
       &:hover {
+        cursor: pointer;
         animation: spin 2s infinite linear;
         -webkit-animation: spin 2s infinite linear;
       }
@@ -69,32 +89,36 @@
     }
   }
 
-  &-action:not(:first-child), &-action:not(:last-child){
-    margin: 0 12px;
+  &-action:first-child{
+    margin-right: $mg-md;
+  }
+  
+  &-action:last-child{
+    margin-left: $mg-md;
   }
 
   &-button, &-link {
-    width: 40px;
-    height: 40px;
+    width: $sett-actions-width;
+    height: $sett-actions-height;
     border: none;
-    border-radius: 40px;
+    border-radius: $sett-actions-width;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #efefef;
+    background-color: var(--bg-color-inverted);
 
     > svg{
-        width: 30px;
-        height: 30px;
-        color: black;
+        width: $sett-actions-icon-width;
+        height: $sett-actions-icon-height;
+        color: var(--bg-color);
     }
 
     &:hover{
         cursor: pointer;
-        width: 48px;
-        height: 48px;
-        border-radius: 48px;
+        width: $sett-actions-icon-width-big;
+        height: $sett-actions-icon-height-big;
+        border-radius: $sett-actions-icon-width-big;
     }
   }
 }

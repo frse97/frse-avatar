@@ -45,7 +45,7 @@ const BodyTab: React.FC<IBodyTab>= props => {
                 value={currentNoseColor}
                 onChange={handleNoseChange}
             />
-            <NumberInput />
+            {/* <NumberInput /> */}
         </>
     );
 };

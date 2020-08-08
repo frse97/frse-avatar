@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import './theming.scss';
+@import './utils.scss';
+
 *{
   font-family: 'Montserrat', sans-serif;
 }
@@ -33,10 +35,13 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-color-inverted);
 }
 .avatar{
   position: relative;
   transform: scale(2.1, 2.1);
+  
+  // TODO: Will be editable
   width: 200px;
   height: 200px;
   border: 1px solid var(--secondary-color);
@@ -46,21 +51,19 @@ main{
 }
 
 .sidebar {
-  width: 600px;
+  // TODO: Maybe sidebar will be resizable
+  width: toRem(600);
   height: inherit;
   background-color: var(--bg-color);
-  color: var(--secondary-color);
+  color: var(--font-color);
   right: 0;
   top: 0;
-  z-index: 9999;
-  -webkit-box-shadow: -4px 0px 10px 0px rgba(194, 190, 194, 1);
-  -moz-box-shadow: -4px 0px 10px 0px rgba(194, 190, 194, 1);
-  box-shadow: -4px 0px 10px 0px rgba(194, 190, 194, 1);
+  z-index: 999;
 }
 
 .avatar-component{
   &:hover{
     cursor: pointer;
-    border: 0.7px solid #FF004D;
+    border: toRem(0.7) solid #FF004D;
   }
 }

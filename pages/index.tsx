@@ -32,7 +32,9 @@ enum FrseAvatarGeneratorThemes {
 const FrseAvatarGenerator = () => {
   const [theme, setTheme] = useState<FrseAvatarGeneratorThemes>(FrseAvatarGeneratorThemes.LIGHT);
 
-  const handleOnChange = (): void => {
+  const handleOnChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+    event.persist();
+    console.log('he');
     setTheme(theme === FrseAvatarGeneratorThemes.LIGHT ? FrseAvatarGeneratorThemes.DARK : FrseAvatarGeneratorThemes.LIGHT);
     if (theme === 'light') {
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -46,7 +48,7 @@ const FrseAvatarGenerator = () => {
       label: 'Change Theme',
       type: 'button',
       icon: theme === FrseAvatarGeneratorThemes.LIGHT ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />,
-      action: () => handleOnChange
+      action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleOnChange(event)
     },
     {
       label: 'Find me on Github',

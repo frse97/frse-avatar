@@ -1,0 +1,5 @@
+@function toRem($base) {
+    $result: $base * 0.06rem;
+    
+    @return $result;
+}

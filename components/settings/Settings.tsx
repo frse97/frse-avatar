@@ -27,7 +27,7 @@ export interface ISettingsElement {
     /**
      * Method to call for buttons
      */
-    action?: () => void;
+    action?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     /**
      * Link for anchors
      */
@@ -56,12 +56,12 @@ const Settings: React.FC<ISettings> = props => {
 
     const SettingsElement: React.FC<ISettingsElement> = props => {
         const { label, icon, type, action, url } = props;
-    return type === 'button' ? <button type="button" className="settings-button settings-action" onClick={action}>{icon}</button> :
+    return type === 'button' ? <button type="button" className="settings-button settings-action" onClick={action} >{icon}</button> :
                                <a className="settings-link settings-action" href={url} target="_blank">{icon}</a>
     }
 
     return <div className={classNames}>
-        <div className={iconWrapperClassName} onClick={handleModeChange}><FontAwesomeIcon icon={faCog} /></div>
+        <button className={iconWrapperClassName} onClick={handleModeChange}><FontAwesomeIcon icon={faCog} /></button>
         <div className={containerClassName}>
             {settingElements.map((el: ISettingsElement) => (
                 <SettingsElement key={settingElements.indexOf(el)} label={el.label} icon={el.icon} type={el.type} action={el.action} url={el.url} />
