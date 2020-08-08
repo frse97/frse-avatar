@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ColorPicker } from "../../ColorPicker";
 import { AppContext } from "../../../../context/appContext";
+import { NumberInput } from "../../NumberInput";
 
 interface IBodyTab {
 }
@@ -44,6 +45,7 @@ const BodyTab: React.FC<IBodyTab>= props => {
                 value={currentNoseColor}
                 onChange={handleNoseChange}
             />
+            <NumberInput />
         </>
     );
 };
