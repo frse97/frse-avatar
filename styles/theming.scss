@@ -1,3 +1,5 @@
+@import './utils.scss';
+
 //Transition
 html {
   transition: color 300ms, background-color 300ms;
@@ -23,26 +25,26 @@ html {
 }
 
 //Variables
-$ideal-width: 40px;
+$ideal-width: toRem(40);
 $ideal-height: $ideal-width;
 
 // Padding
-$pd-xs: 4px;
-$pd-sm: 6px;
-$pd-md: 12px;
-$pd-lg: 24px;
-$pd-xl: 36px;
+$pd-xs: toRem(4);
+$pd-sm: toRem(6);
+$pd-md: toRem(12);
+$pd-lg: toRem(24);
+$pd-xl: toRem(36);
 
 // Padding
-$pd-xs: 4px;
-$pd-sm: 6px;
-$pd-md: 12px;
-$pd-lg: 24px;
-$pd-xl: 36px;
+$pd-xs: toRem(4);
+$pd-sm: toRem(6);
+$pd-md: toRem(12);
+$pd-lg: toRem(24);
+$pd-xl: toRem(36);
 
 // Margin
-$mg-xs: 4px;
-$mg-sm: 6px;
-$mg-md: 12px;
-$mg-lg: 24px;
-$mg-xl: 36px;
+$mg-xs: toRem(4);
+$mg-sm: toRem(6);
+$mg-md: toRem(12);
+$mg-lg: toRem(24);
+$mg-xl: toRem(36);
