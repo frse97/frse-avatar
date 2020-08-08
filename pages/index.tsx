@@ -47,7 +47,7 @@ const FrseAvatarGenerator = () => {
     {
       label: 'Change Theme',
       type: 'button',
-      icon: theme === FrseAvatarGeneratorThemes.LIGHT ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />,
+      icon: theme === FrseAvatarGeneratorThemes.LIGHT ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />,
       action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleOnChange(event)
     },
     {
