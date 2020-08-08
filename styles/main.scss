@@ -31,6 +31,7 @@ main{
   height: inherit;
 }
 .avatar-wrapper{
+  position: relative;
   width: inherit;
   display: flex;
   align-items: center;
@@ -38,7 +39,7 @@ main{
   background-color: var(--bg-color-inverted);
 }
 .avatar{
-  position: relative;
+  position: absolute;
   transform: scale(2.1, 2.1);
   
   // TODO: Will be editable
