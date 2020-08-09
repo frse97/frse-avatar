@@ -33,6 +33,15 @@ main{
   width: 100%;
   height: inherit;
 }
+
+button, a, input{
+  &:focus {
+   
+    // Override Button outline behaviour
+   outline-color: #FF004D;
+  }
+}
+
 .avatar-wrapper{
   position: relative;
   width: inherit;
