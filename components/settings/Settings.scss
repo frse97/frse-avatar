@@ -15,8 +15,6 @@ $sett-actions-width: $ideal-width;
 $sett-actions-height: $ideal-height;
 $sett-actions-icon-width: toRem(30);
 $sett-actions-icon-height: $sett-actions-icon-width;
-$sett-actions-icon-width-big: toRem(48);
-$sett-actions-icon-height-big: $sett-actions-icon-width-big;
 
 .settings {
   height: $sett-height-collapsed;
@@ -120,9 +118,6 @@ $sett-actions-icon-height-big: $sett-actions-icon-width-big;
 
     &:hover{
         cursor: pointer;
-        width: $sett-actions-icon-width-big;
-        height: $sett-actions-icon-height-big;
-        border-radius: $sett-actions-icon-width-big;
     }
   }
 }

@@ -56,8 +56,8 @@ const Settings: React.FC<ISettings> = props => {
 
     const SettingsElement: React.FC<ISettingsElement> = props => {
         const { label, icon, type, action, url } = props;
-    return type === 'button' ? <button type="button" className="settings-button settings-action" onClick={action} >{icon}</button> :
-                               <a className="settings-link settings-action" href={url} target="_blank">{icon}</a>
+    return type === 'button' ? <button type="button" data-tooltip={label} className="settings-button settings-action" onClick={action} >{icon}</button> :
+                               <a className="settings-link settings-action" data-tooltip={label} href={url} target="_blank">{icon}</a>
     }
 
     return <div className={classNames}>

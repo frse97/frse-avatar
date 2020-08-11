@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import './theming.scss';
 @import './utils.scss';
+// Components Styles
+@import './components/tooltip.scss';
 
 * {
   font-family: 'Montserrat', sans-serif;
@@ -36,9 +38,8 @@ main{
 
 button, a, input{
   &:focus {
-   
     // Override Button outline behaviour
-   outline-color: #FF004D;
+   outline-color: var(--bg-color-inverted);
   }
 }
 
@@ -82,3 +83,4 @@ button, a, input{
     border: toRem(0.7) solid #FF004D;
   }
 }
+
