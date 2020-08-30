@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IEyeBrown } from '../../../model/avatar.model';
 
 const EyeBrownWrapper: React.FC<IEyeBrown> = props => {
-  const { background } = props;
+  const { state } = props;
   return <>
   <EyeBrownLeft className={"avatar-component"} {...props} />
   <EyeBrownRight className={"avatar-component"} {...props} /></>;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { INeck } from '../../../model/avatar.model';
 
 const NeckWrapper: React.FC<INeck> = props => {
-    const { background } = props;
+    const { state } = props;
     return <Neck className={'avatar-component'} {...props} />;
 }
 

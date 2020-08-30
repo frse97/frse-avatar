@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IFace } from '../../../model/avatar.model';
 
 const FaceWrapper: React.FC<IFace> = props => {
-    const { background } = props;
+    const { state } = props;
     return <Face className={'avatar-component'} {...props} />;
 }
 

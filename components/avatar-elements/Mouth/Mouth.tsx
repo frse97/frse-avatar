@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IMouth } from "../../../model/avatar.model";
 
 const MouthWrapper: React.FC<IMouth> = props => {
-  const { background, tongueColor } = props;
+  const { tongueColor } = props;
   return (
     <Mouth className={'avatar-component'} {...props}>
       <Tongue className={'avatar-component'} {...props} />

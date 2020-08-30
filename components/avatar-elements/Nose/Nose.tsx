@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { INose } from '../../../model/avatar.model';
 
 const NoseWrapper: React.FC<INose> = props => {
-    const { background } = props;
+    const { state } = props;
     return <Nose className={'avatar-component'} {...props} />;
 }
 

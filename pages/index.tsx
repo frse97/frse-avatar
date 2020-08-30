@@ -1,6 +1,6 @@
 import React, { useState, Profiler } from "react";
 import Head from "next/head";
-import AppContext from "../context/appContext";
+import { Provider } from 'react-redux';
 import { Avatar } from "../components/avatar-elements/Avatar";
 import { SideBar } from "../components/editor-elements/Sidebar";
 import { Settings } from "../components/settings";
@@ -8,6 +8,8 @@ import { ISettingsElement } from "../components/settings/Settings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon, faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { IAvatarGeneratorState } from "../store/store.state";
+import store from './../store/index';
 
 const onRenderCallback = (
   id?: string,
@@ -31,6 +33,7 @@ enum FrseAvatarGeneratorThemes {
 
 const FrseAvatarGenerator = () => {
   const [theme, setTheme] = useState<FrseAvatarGeneratorThemes>(FrseAvatarGeneratorThemes.LIGHT);
+  // const string = localStorage.getItem('avatar-gen');
 
   const handleOnChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
     event.persist();
@@ -66,7 +69,7 @@ const FrseAvatarGenerator = () => {
 
   return (
     <Profiler id="App" onRender={onRenderCallback}>
-      <AppContext>
+      <Provider store={store}>
         <Head>
           <title>FRSE CSS Avatar</title>
           <link rel="icon" href="/favicon.ico" />
@@ -78,7 +81,7 @@ const FrseAvatarGenerator = () => {
           </div>
           <SideBar />
         </main>
-      </AppContext>
+      </Provider>
     </Profiler>
   );
 };

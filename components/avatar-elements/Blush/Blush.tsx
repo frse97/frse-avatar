@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IBlush } from '../../../model/avatar.model';
 
 const BlushWrapper: React.FC<IBlush> = props => {
-  const { background } = props;
+  const { state } = props;
   return <><BlushLeft className={"avatar-component"} {...props} />
   <BlushRight className={"avatar-component"} {...props} /></>;
 }

@@ -68,6 +68,8 @@ const Settings: React.FC<ISettings> = props => {
             ))}
         </div>
     </div>
+
+    
 }
 
 export default Settings;

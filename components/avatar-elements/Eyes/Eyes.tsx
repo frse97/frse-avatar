@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IEyes } from '../../../model/avatar.model';
 
 const EyesWrapper: React.FC<IEyes> = props => {
-  const { background } = props;
+  const { state } = props;
 
   return <>
   <LeftEye className={'avatar-component'} {...props} />

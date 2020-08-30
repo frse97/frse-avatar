@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { IBody } from '../../../model/avatar.model';
 
 const BodyWrapper: React.FC<IBody> = props => {
-    const { background } = props;
+    const { state } = props;
+    console.log(props);
+    
     return <Body className={"avatar-component"} {...props} />;
 }
 
@@ -16,7 +18,7 @@ const Body = styled.div.attrs(internalProps => {
   left: 60px;
   border-radius: 100px;
   z-index: 10;
-  background: ${props => props.background};
+  background: ${props => props.state.attributes.BACKGROUND};
   position: absolute;
   border: 1px solid #000;
   box-sizing: border-box;

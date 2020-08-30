@@ -1,23 +1,16 @@
-export interface IAvatarProps {
-  
-}
-export interface IBody extends GenericElement{}
-export interface IFace extends GenericElement{}
-export interface INeck extends GenericElement{}
-export interface IMouth extends GenericElement{
+import { IPartState } from "../store/avatar/avatar.state"
+
+export interface IBody extends GenericElementState { }
+export interface IFace extends GenericElementState { }
+export interface INeck extends GenericElementState { }
+export interface IMouth extends GenericElementState {
   tongueColor: string;
 }
-export interface IEyes extends GenericElement{}
-export interface IEyeBrown extends GenericElement{}
-export interface IBlush extends GenericElement {}
-export interface INose extends GenericElement {}
+export interface IEyes extends GenericElementState { }
+export interface IEyeBrown extends GenericElementState { }
+export interface IBlush extends GenericElementState { }
+export interface INose extends GenericElementState { }
 
-interface GenericElement{
-  width?: string;
-  height?: string;
-  top?: string;
-  left?: string;
-  borderRadius?: string;
-  background: string;
-  zIndex?: string;
+export type GenericElementState = {
+  state: IPartState;
 }
