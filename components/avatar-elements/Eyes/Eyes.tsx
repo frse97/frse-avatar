@@ -19,7 +19,7 @@ const LeftEye = styled.div.attrs(internalProps => {
   left: 80px;
   border-radius: 10px;
   z-index: 30;
-  background: ${props => props.background};
+  background: ${props => props.state.attributes.BACKGROUND};
   position: absolute;
   box-sizing: border-box;
 })
@@ -34,7 +34,7 @@ const RightEye = styled.div.attrs(internalProps => {
     left: 130px;
     border-radius: 10px;
     z-index: 30;
-    background: ${props => props.background};
+    background: ${props => props.state.attributes.BACKGROUND};
     position: absolute;
     box-sizing: border-box;
 `;

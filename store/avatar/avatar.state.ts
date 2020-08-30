@@ -15,6 +15,7 @@ export enum AvatarParts {
     EYES = 'EYES',
     FACE = 'FACE',
     MOUTH = 'MOUTH',
+    TONGUE = 'TONGUE',
     NECK = 'NECK',
     NOSE = 'NOSE'
 }

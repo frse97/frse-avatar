@@ -1,47 +1,43 @@
 import React, { useContext, useRef } from "react";
-import { ColorPicker } from "../../ColorPicker";
 import { useSelector } from 'react-redux';
+import { ColorPicker } from "../../ColorPicker";
 import { avatarPropertySelector } from "../../../../store/avatar/avatar.selector";
 import { AvatarParts } from "../../../../store/avatar/avatar.state";
 import { GenericProperties } from "../../../../shared/models/generic.model";
 import { useActions } from './../../../../shared/useActions';
+import { avatarPartSelector } from './../../../../store/avatar/avatar.selector';
 
 interface IBodyTab {
 }
 
-const BodyTab: React.FC<IBodyTab>= props => {
-    const storeBodyBackground = useSelector(avatarPropertySelector(AvatarParts.BODY, GenericProperties.BACKGROUND))
-    const actions = useRef(useActions(AvatarParts.BODY, GenericProperties.BACKGROUND, undefined));
-    
-    console.log(actions.current);
+const BodyTab: React.FC<IBodyTab> = props => {
+    const storeFaceBackground = useSelector(avatarPropertySelector(AvatarParts.FACE, GenericProperties.BACKGROUND));
+    const storeBodyBackground = useSelector(avatarPropertySelector(AvatarParts.BODY, GenericProperties.BACKGROUND));
+    const storeNoseBackground = useSelector(avatarPropertySelector(AvatarParts.NOSE, GenericProperties.BACKGROUND));
+    const actions = useRef(useActions());
 
-    // const { currentSkinColor, currentBodyColor, currentNoseColor, setCurrentSkinColor, setCurrentBodyColor, setCurrentNoseColor } = useContext(AppContext);
-
-    // const handleSkinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     e.persist();
-    //     setCurrentSkinColor(e.target.value);
-    //   };
-    
-      const handleBodyBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFaceBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.persist();
-        actions.current.setAvatarProperty(AvatarParts.BODY, GenericProperties.BACKGROUND, e.target.value);
-        console.log('action');
+        actions.current.setAvatarProperty(AvatarParts.FACE, GenericProperties.BACKGROUND, e.target.value);
     };
 
-    //   const handleNoseChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     e.persist();
-    //     setCurrentNoseColor(e.target.value);
-    //   }
+    const handleBodyBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.persist();
+        actions.current.setAvatarProperty(AvatarParts.BODY, GenericProperties.BACKGROUND, e.target.value);
+    };
 
-    console.log(storeBodyBackground);
+    const handleNoseBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.persist();
+        actions.current.setAvatarProperty(AvatarParts.NOSE, GenericProperties.BACKGROUND, e.target.value);
+    }
 
     return (
         <>
             <ColorPicker
                 id="skin"
                 name="Skin"
-                value={storeBodyBackground}
-                onChange={handleBodyBackgroundChange}
+                value={storeFaceBackground}
+                onChange={handleFaceBackgroundChange}
             />
             <ColorPicker
                 id="body"
@@ -52,10 +48,9 @@ const BodyTab: React.FC<IBodyTab>= props => {
             <ColorPicker
                 id="nose"
                 name="Nose"
-                // value={currentNoseColor}
-                // onChange={handleNoseChange}
+                value={storeNoseBackground}
+                onChange={handleNoseBackgroundChange}
             />
-            {/* <NumberInput /> */}
         </>
     );
 };

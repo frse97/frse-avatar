@@ -17,7 +17,7 @@ top: 116px;
 left: 77px;
 border-radius: 10px;
 z-index: 90;
-background: ${props => props.background};
+background: ${props => props.state.attributes.BACKGROUND};
 position: absolute;
 box-sizing: border-box;
 opacity: 0.4;
@@ -32,7 +32,7 @@ const BlushRight = styled.div.attrs(internalProps => {
     left: 135px;
     border-radius: 10px;
     z-index: 90;
-    background: ${props => props.background};
+    background: ${props => props.state.attributes.BACKGROUND};
     position: absolute;
     box-sizing: border-box;
     opacity: 0.4;

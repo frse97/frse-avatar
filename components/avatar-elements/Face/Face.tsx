@@ -16,7 +16,7 @@ const Face = styled.div.attrs(internalProps => {
   left: 70px;
   border-radius: 100px;
   z-index: 20;
-  background: ${props => props.background};
+  background: ${props => props.state.attributes.BACKGROUND};
   position: absolute;
   box-sizing: border-box;
 `;

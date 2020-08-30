@@ -1,22 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
+import { useSelector } from 'react-redux';
+
 import { ColorPicker } from "../../ColorPicker";
+import { avatarPropertySelector } from "../../../../store/avatar/avatar.selector";
+import { AvatarParts } from "../../../../store/avatar/avatar.state";
+import { GenericProperties } from "../../../../shared/models/generic.model";
+import { useActions } from "../../../../shared/useActions";
 
 const DecorationTab: React.FC = () => {
 
-    // const { currentBlushColor, setCurrentBlushColor} = useContext(AppContext);
+    const storeBlushBackground = useSelector(avatarPropertySelector(AvatarParts.NOSE, GenericProperties.BACKGROUND));
+    const actions = useRef(useActions());
 
-    // const handleBlushChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     e.persist();
-    //     setCurrentBlushColor(e.target.value);
-    //   }
+    const handleBlushBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.persist();
+        actions.current.setAvatarProperty(AvatarParts.BLUSH, GenericProperties.BACKGROUND, e.target.value);
+    };
 
     return (
         <>
             <ColorPicker
                 id="blush"
                 name="Blush"
-                // value={currentBlushColor}
-                // onChange={handleBlushChange}
+                value={storeBlushBackground}
+                onChange={handleBlushBackgroundChange}
             /></>
     );
 };

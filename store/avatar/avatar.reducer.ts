@@ -71,7 +71,7 @@ const getInitialState = (forceReset: boolean): IAvatarState => {
                     [GenericProperties.TOP]: '',
                     [GenericProperties.LEFT]: '',
                     [GenericProperties.BORDER_RADIUS]: '',
-                    [GenericProperties.BACKGROUND]: '#133337',
+                    [GenericProperties.BACKGROUND]: '#f0beaf',
                     [GenericProperties.Z_INDEX]: '',
                 }
             },
@@ -83,6 +83,17 @@ const getInitialState = (forceReset: boolean): IAvatarState => {
                     [GenericProperties.LEFT]: '',
                     [GenericProperties.BORDER_RADIUS]: '',
                     [GenericProperties.BACKGROUND]: '#424B54',
+                    [GenericProperties.Z_INDEX]: '',
+                }
+            },
+            [AvatarParts.TONGUE]: {
+                attributes: {
+                    [GenericProperties.WIDTH]: '',
+                    [GenericProperties.HEIGHT]: '',
+                    [GenericProperties.TOP]: '',
+                    [GenericProperties.LEFT]: '',
+                    [GenericProperties.BORDER_RADIUS]: '',
+                    [GenericProperties.BACKGROUND]: '#f254a9',
                     [GenericProperties.Z_INDEX]: '',
                 }
             },
@@ -110,21 +121,14 @@ const getInitialState = (forceReset: boolean): IAvatarState => {
             }
         };
     }
-    console.log(initialState);
     return initialState;
 };
-
-// [Parts.Mouth]: {
-//     background: "#424B54",
-//     tongueColor: "#f254a9"
-// },
 
 export const avatarReducer = (state: IAvatarState = getInitialState(false), a: AvatarActions.ALL_ACTIONS): IAvatarState => {
     const result = produce((draft: Draft<IAvatarState>, action: AvatarActions.ALL_ACTIONS) => {
         switch (action.type) {
             case AVATAR_SET_PART_PROPERTY: {
                 if(draft[action.avatarParts]) {
-                    console.log('attr', draft[action.avatarParts].attributes[action.avatarAttribute]);
                     draft[action.avatarParts].attributes[action.avatarAttribute] = action.attributeValue;
                 }
                 return draft;

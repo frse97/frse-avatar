@@ -16,7 +16,7 @@ const Neck = styled.div.attrs(internalProps => {
   left: 97px;
   border-radius: 30px;
   z-index: 13;
-  background: ${props => props.background};
+  background: ${props => props.state.attributes.BACKGROUND};
   position: absolute;
   box-sizing: border-box;
 `;

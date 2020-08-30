@@ -10,6 +10,7 @@ import { EyeBrown } from "../Eyebrown";
 import { Nose } from "../Nose";
 import { avatarPartSelector } from './../../../store/avatar/avatar.selector';
 import { AvatarParts } from "../../../store/avatar/avatar.state";
+import { Tongue } from "../Tongue";
 
 const Avatar: React.FC = props => {
   const blushState = useSelector(avatarPartSelector(AvatarParts.BLUSH));
@@ -18,7 +19,8 @@ const Avatar: React.FC = props => {
   const eyeState = useSelector(avatarPartSelector(AvatarParts.EYES));
   const faceState = useSelector(avatarPartSelector(AvatarParts.FACE));
   const mouthState = useSelector(avatarPartSelector(AvatarParts.MOUTH));
-  const neckState = useSelector(avatarPartSelector(AvatarParts.NECK));
+  const tongueState = useSelector(avatarPartSelector(AvatarParts.TONGUE));
+  const neckState = useSelector(avatarPartSelector(AvatarParts.FACE));
   const noseState = useSelector(avatarPartSelector(AvatarParts.NOSE));
 
   return (
@@ -28,11 +30,9 @@ const Avatar: React.FC = props => {
       <Eyes state={eyeState}/>
       <Nose state={noseState}/>
       <Blush state={blushState} />
-      {/* TODO:
-            How to implement tonguecolor and extend enums
-            tongueColor={state.avatar[Parts.Mouth].tongueColor}
-      */}
-      <Mouth state={mouthState} tongueColor={'black'} />
+      <Mouth state={mouthState}>
+        <Tongue state={tongueState}></Tongue>
+      </Mouth>
       <Neck state={neckState} />
       <Body state={bodyState} />
     </div>

@@ -4,7 +4,6 @@ import { IBody } from '../../../model/avatar.model';
 
 const BodyWrapper: React.FC<IBody> = props => {
     const { state } = props;
-    console.log(props);
     
     return <Body className={"avatar-component"} {...props} />;
 }

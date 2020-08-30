@@ -18,7 +18,7 @@ const EyeBrownLeft = styled.div.attrs(internalProps => {
   left: 74px;
   border-radius: 3px;
   z-index: 90;
-  background: ${props => props.background};
+  background: ${props => props.state.attributes.BACKGROUND};
   position: absolute;
   box-sizing: border-box;
 `
@@ -32,7 +32,7 @@ const EyeBrownRight = styled.div.attrs(internalProps => {
     left: 124px;
     border-radius: 3px;
     z-index: 90;
-    background: ${props => props.background};
+    background: ${props => props.state.attributes.BACKGROUND};
     position: absolute;
    box-sizing: border-box;
 `;
