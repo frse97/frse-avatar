@@ -1,6 +1,6 @@
-import React, { useState, Profiler } from "react";
+import React, { useState, Profiler, useRef } from "react";
 import Head from "next/head";
-import { Provider } from 'react-redux';
+import { useSelector, Provider as ReduxProvider } from 'react-redux';
 import { Avatar } from "../components/avatar-elements/Avatar";
 import { SideBar } from "../components/editor-elements/Sidebar";
 import { Settings } from "../components/settings";
@@ -10,6 +10,11 @@ import { faSun, faMoon, faEnvelopeSquare } from "@fortawesome/free-solid-svg-ico
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { IAvatarGeneratorState } from "../store/store.state";
 import store from './../store/index';
+import { settingsThemeSelector } from './../store/settings/settings.selector';
+import { FrseAvatarGeneratorThemes } from "../model/theme.model";
+import { useActions } from "../shared/useActions";
+import { useTrackSize } from "../shared/useTrackSize";
+import { TrackOptions } from './../shared/useTrackSize';
 
 const onRenderCallback = (
   id?: string,
@@ -26,62 +31,38 @@ const onRenderCallback = (
   }
 };
 
-enum FrseAvatarGeneratorThemes {
-  LIGHT = 'light',
-  DARK = 'dark'
-}
-
 const FrseAvatarGenerator = () => {
-  const [theme, setTheme] = useState<FrseAvatarGeneratorThemes>(FrseAvatarGeneratorThemes.LIGHT);
-  // const string = localStorage.getItem('avatar-gen');
+  const [wrapperWidth, setWrapperWidth] = useState(0);
 
-  const handleOnChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
-    event.persist();
-    console.log('he');
-    setTheme(theme === FrseAvatarGeneratorThemes.LIGHT ? FrseAvatarGeneratorThemes.DARK : FrseAvatarGeneratorThemes.LIGHT);
-    if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-  };
+  const handleResize = (size: { width: number, height: number }) => {
+    console.log('resize');
+    setWrapperWidth(size.width);
+  }
 
-  const settings: ISettingsElement[] = [
-    {
-      label: 'Change Theme',
-      type: 'button',
-      icon: theme === FrseAvatarGeneratorThemes.LIGHT ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />,
-      action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleOnChange(event)
-    },
-    {
-      label: 'Find me on Github',
-      type: 'link',
-      icon: <FontAwesomeIcon icon={faGithub} />,
-      url: "https://github.com/frse97"
-    },
-    {
-      label: 'Contact me',
-      type: 'link',
-      icon: <FontAwesomeIcon icon={faEnvelopeSquare} />,
-      url: "mailto://sebastian.fries@outlook.com"
-    }
-  ]
+  const trackOptions: TrackOptions = {
+    debounce: 2,
+    width: true,
+    handleResize
+  }
+
+  const trackSizeAvatarWrapperRef = useTrackSize<HTMLDivElement>(trackOptions)
 
   return (
     <Profiler id="App" onRender={onRenderCallback}>
-      <Provider store={store}>
+      <ReduxProvider store={store}>
         <Head>
           <title>FRSE CSS Avatar</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-          <div className="avatar-wrapper">
+          <div className="avatar-wrapper" ref={trackSizeAvatarWrapperRef}>
+            <div className="avatar-wrapper-width">{wrapperWidth}px</div>
             <Avatar />
-            <Settings settingElements={settings}/>
+            <Settings />
           </div>
-          <SideBar />
         </main>
-      </Provider>
+        <SideBar />
+      </ReduxProvider>
     </Profiler>
   );
 };

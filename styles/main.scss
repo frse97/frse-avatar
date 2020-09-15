@@ -25,6 +25,7 @@ body{
 }
   // Override Next
 #__next{
+  display: flex;
   height: inherit !important;
   &>div{
     height: inherit !important;
@@ -52,6 +53,21 @@ button, a, input{
   background-color: var(--bg-color-inverted);
   transition: background-color 300ms;
 }
+
+.avatar-wrapper-width{
+  position: absolute;
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  padding: 4px 12px ;
+  margin: 4px;
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
 .avatar{
   position: absolute;
   transform: scale(2.1, 2.1);

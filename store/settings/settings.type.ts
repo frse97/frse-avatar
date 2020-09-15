@@ -1,0 +1,1 @@
+export const SETTINGS_SET_THEME = 'SETTINGS_SET_THEME'; 

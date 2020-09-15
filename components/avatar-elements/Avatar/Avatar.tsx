@@ -23,6 +23,7 @@ const Avatar: React.FC = props => {
   const neckState = useSelector(avatarPartSelector(AvatarParts.FACE));
   const noseState = useSelector(avatarPartSelector(AvatarParts.NOSE));
 
+  
   return (
     <div className={`avatar`}>
       <Face state={faceState} />

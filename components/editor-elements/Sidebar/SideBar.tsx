@@ -26,10 +26,10 @@ const tabs: ITab[] = [
 const SideBar: React.FC<ISideBarProps> = props => {
     
     return (
-        <div className="sidebar">
+        <aside className="sidebar">
             <h2>Avatar.edit</h2>
             <Tabs tabs={tabs} />
-        </div>
+        </aside>
     );
 };
 
