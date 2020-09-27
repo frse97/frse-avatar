@@ -4,7 +4,7 @@
     height : 100%;
     padding: 12px;
 
-    &-header {
+    &-wrapper {
         display: flex;
         align-items: center;
         width: 100%;
@@ -18,6 +18,10 @@
         flex: 1 1 0px;
         height: 40px;
         border: 0;
+
+        >svg{
+          width: 16px;
+        }
 
         &.--selected{
             background-color: #ccc;

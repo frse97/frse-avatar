@@ -1,4 +1,4 @@
 @function toRem($base) {
-    $result: $base * 0.06rem;
+    $result: $base * 0.0625rem;
     @return $result;
 }

@@ -1,4 +1,9 @@
 import { IPartState } from "../store/avatar/avatar.state"
+import { TrackSize } from './generic.model';
+
+export interface IAvatar {
+  containerSize: TrackSize; 
+}
 
 export interface IBody extends GenericElementState { }
 export interface IFace extends GenericElementState { }

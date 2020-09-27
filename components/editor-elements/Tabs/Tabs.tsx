@@ -55,10 +55,20 @@ const Tabs: React.FC<ITabs> = props => {
     const TabsHeader: React.FC<ITabsHeader> = props => {
         const { tabs } = props;
         return (
-            <div className="tabs-header">
+            <div className='tabs-wrapper'>
                 {tabs.map((tab: ITab) => {
                     const classNames = cs('tabs-button', currentSelectedTab === tab.id ? '--selected' : '');
-                    return (<button key={tab.id} id={tab.id} value={tab.id} className={classNames} type="button" name={tab.label} onClick={handleTabChange}>{tab.icon}{tab.label}</button>
+                    return (<button key={tab.id}
+                        id={tab.id}
+                        value={tab.id}
+                        className={classNames}
+                        type="button"
+                        name={tab.label}
+                        onClick={handleTabChange}
+                        formTarget="_blank"
+                    >
+                        {tab.label}
+                    </button>
                     )
                 })}
             </div>);

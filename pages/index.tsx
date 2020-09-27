@@ -1,20 +1,13 @@
 import React, { useState, Profiler, useRef } from "react";
 import Head from "next/head";
-import { useSelector, Provider as ReduxProvider } from 'react-redux';
+import { Provider as ReduxProvider } from 'react-redux';
 import { Avatar } from "../components/avatar-elements/Avatar";
 import { SideBar } from "../components/editor-elements/Sidebar";
 import { Settings } from "../components/settings";
-import { ISettingsElement } from "../components/settings/Settings";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon, faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { IAvatarGeneratorState } from "../store/store.state";
 import store from './../store/index';
-import { settingsThemeSelector } from './../store/settings/settings.selector';
-import { FrseAvatarGeneratorThemes } from "../model/theme.model";
-import { useActions } from "../shared/useActions";
 import { useTrackSize } from "../shared/useTrackSize";
 import { TrackOptions } from './../shared/useTrackSize';
+import { TrackSize } from "../model/generic.model";
 
 const onRenderCallback = (
   id?: string,
@@ -25,23 +18,22 @@ const onRenderCallback = (
   commitTime?: number,
   interactions?: any
 ) => {
-  console.log('PHASE', phase);
   if (phase === 'mount') {
     document.documentElement.setAttribute('data-theme', 'light');
   }
 };
 
 const FrseAvatarGenerator = () => {
-  const [wrapperWidth, setWrapperWidth] = useState(0);
+  const [wrapperSize, setWrapperSize] = useState<TrackSize>({width: 0, height: 0});
 
   const handleResize = (size: { width: number, height: number }) => {
-    console.log('resize');
-    setWrapperWidth(size.width);
+    setWrapperSize({width: size.width, height: size.height});
   }
 
   const trackOptions: TrackOptions = {
     debounce: 2,
     width: true,
+    height: true,
     handleResize
   }
 
@@ -56,10 +48,10 @@ const FrseAvatarGenerator = () => {
         </Head>
         <main>
           <div className="avatar-wrapper" ref={trackSizeAvatarWrapperRef}>
-            <div className="avatar-wrapper-width">{wrapperWidth}px</div>
-            <Avatar />
-            <Settings />
+            <div className="avatar-wrapper-width">width {wrapperSize.width}px, height {wrapperSize.height}px</div>
+            <Avatar containerSize={wrapperSize}/>
           </div>
+          <Settings />
         </main>
         <SideBar />
       </ReduxProvider>

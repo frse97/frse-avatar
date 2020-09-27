@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import { Tabs } from "../Tabs";
 import { ITab } from "../Tabs/Tabs";
 
@@ -7,19 +7,19 @@ interface ISideBarProps {}
 const tabs: ITab[] = [
     {
         id: 'body',
-        label: 'Body'
+        label: 'Body',
     },
     {
         id: 'eyes',
-        label: 'Eyes'
+        label: 'Eyes',
     },
     {
         id: 'mouth',
-        label: 'Mouth'
+        label: 'Mouth',
     },
     {
         id: 'decoration',
-        label: 'Decoration'
+        label: 'Decoration',
     }
 ]
 
