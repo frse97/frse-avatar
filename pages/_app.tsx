@@ -1,3 +1,6 @@
+import React from 'react';
+import App from 'next/app';
+import { appWithTranslation } from '../shared/i18n';
 import { AppProps } from 'next/app';
 import '../components/FrseAvatar/FrseAvatar.css';
 
@@ -19,4 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
 
-export default MyApp
+MyApp.getInitialProps = async (appContext) => {
+  const appProps = await App.getInitialProps(appContext);
+  return { ...appProps };
+}
+
+export default appWithTranslation(MyApp);

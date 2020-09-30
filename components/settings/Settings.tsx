@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { MouseEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCogs, faCog, faMoon, faEnvelopeSquare, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faCogs, faCog, faMoon, faEnvelopeSquare, faSun, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import cs from 'classnames';
 import { emitKeypressEvents } from 'readline';
@@ -9,6 +9,8 @@ import { settingsThemeSelector } from '../../store/settings/settings.selector';
 import { useActions } from '../../shared/useActions';
 import { FrseAvatarGeneratorThemes } from '../../model/theme.model';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { i18n, withTranslation } from '../../shared/i18n';
+import PropTypes from 'prop-types';
 
 enum SettingsModes {
     EXP = 'expanded',
@@ -39,11 +41,7 @@ export interface ISettingsElement {
     url?: string;
 }
 
-interface ISettings {
-
-}
-
-const Settings: React.FC<ISettings> = props => {
+const Settings = ({ t }) => {
     const [mode, setMode] = useState<SettingsModes>(SettingsModes.COL);
 
     const classNames: string = cs('settings', mode === SettingsModes.COL ? '--collapsed' : '--expanded');
@@ -53,7 +51,7 @@ const Settings: React.FC<ISettings> = props => {
     const settingsThemeState = useSelector(settingsThemeSelector());
     const actions = useRef(useActions());
 
-    const handleOnChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+    const handleThemeChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
         event.persist();
         actions.current.setTheme(settingsThemeState === 'light'? FrseAvatarGeneratorThemes.DARK : FrseAvatarGeneratorThemes.LIGHT);
         if (settingsThemeState === FrseAvatarGeneratorThemes.LIGHT) {
@@ -63,24 +61,35 @@ const Settings: React.FC<ISettings> = props => {
         }
     };
 
+    const handleLanguageChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+        event.persist();
+        i18n.changeLanguage(i18n.language === 'en' ? 'de': 'en');
+    }
+
     const settings: ISettingsElement[] = [
         {
-            label: 'Change Theme',
+            label: t('actions.settings.change-theme'),
             type: 'button',
             icon: settingsThemeState === FrseAvatarGeneratorThemes.LIGHT ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />,
-            action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleOnChange(event)
+            action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleThemeChange(event)
         },
         {
-            label: 'Find me on Github',
+            label: t('actions.settings.github'),
             type: 'link',
             icon: <FontAwesomeIcon icon={faGithub} />,
             url: "https://github.com/frse97"
         },
         {
-            label: 'Contact me',
+            label: t('actions.settings.mail-me'),
             type: 'link',
             icon: <FontAwesomeIcon icon={faEnvelopeSquare} />,
             url: "mailto://sebastian.fries@outlook.com"
+        },
+        {
+            label: t('actions.settings.change-region'),
+            type: 'button',
+            icon: <FontAwesomeIcon icon={faGlobe} />,
+            action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleLanguageChange(event)
         }
     ]
 
@@ -94,6 +103,7 @@ const Settings: React.FC<ISettings> = props => {
 
     const SettingsElement: React.FC<ISettingsElement> = props => {
         const { label, icon, type, action, url } = props;
+        //@ts-ignore
         return type === 'button' ? <button type="button" data-tooltip={label} className="settings-button settings-action" onClick={action} >{icon}</button> :
             <a className="settings-link settings-action" data-tooltip={label} href={url} target="_blank">{icon}</a>
     }
@@ -110,4 +120,12 @@ const Settings: React.FC<ISettings> = props => {
 
 }
 
-export default Settings;
+Settings.getInitialProps = async () => ({
+    namespacesRequired: ['common']
+});
+
+Settings.propTypes = {
+    t: PropTypes.func.isRequired
+}
+
+export default withTranslation('common')(Settings);  

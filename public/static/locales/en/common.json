@@ -1,0 +1,18 @@
+{
+    "actions": {
+        "settings": {
+            "change-region": "Change region",
+            "change-theme": "Change theme",
+            "github": "Find me on Github",
+            "mail-me": "Contact me"
+        }
+    },
+    "dictionary": {
+        "height": "height",
+        "px": "px",
+        "width": "width"
+    },
+    "meta": {
+        "title": "FRSE`s HTML Avatar Generator"
+    }
+}

@@ -5,7 +5,7 @@
 // Does variables influence perfomance? 
 
 $sett-width-collapsed: toRem(60);
-$sett-width-expanded: toRem(210);
+$sett-width-expanded: toRem(260);
 $sett-height-collapsed: $sett-width-collapsed;
 $sett-icon-wrapper-width: toRem(50);
 $sett-icon-wrapper-height: $sett-icon-wrapper-width;
@@ -91,14 +91,6 @@ $sett-actions-icon-height: $sett-actions-icon-width;
     }
   }
 
-  &-action:first-child{
-    margin-right: $mg-md;
-  }
-  
-  &-action:last-child{
-    margin-left: $mg-md;
-  }
-
   &-button, &-link {
     width: $sett-actions-width;
     height: $sett-actions-height;
@@ -109,6 +101,7 @@ $sett-actions-icon-height: $sett-actions-icon-width;
     align-items: center;
     justify-content: center;
     background-color: var(--bg-color-inverted);
+    margin: 0 0.15rem;
 
     > svg{
         width: $sett-actions-icon-width;
