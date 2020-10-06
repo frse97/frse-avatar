@@ -8,7 +8,7 @@ import { Settings } from "../components/settings";
 import store from '../store/index';
 import { useTrackSize } from "../shared/useTrackSize";
 import { TrackOptions } from '../shared/useTrackSize';
-import { TrackSize } from "../model/generic.model";
+import { TrackSize } from "../shared/models/generic.model";
 import { withTranslation } from '../shared/i18n';
 
 const onRenderCallback = (

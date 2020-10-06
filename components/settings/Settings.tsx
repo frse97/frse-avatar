@@ -11,6 +11,7 @@ import { FrseAvatarGeneratorThemes } from '../../model/theme.model';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { i18n, withTranslation } from '../../shared/i18n';
 import PropTypes from 'prop-types';
+import { FrseAvatarGeneratorSupportedLang } from '../../shared/models/region.model';
 
 enum SettingsModes {
     EXP = 'expanded',
@@ -52,8 +53,7 @@ const Settings = ({ t }) => {
     const actions = useRef(useActions());
 
     const handleThemeChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
-        event.persist();
-        actions.current.setTheme(settingsThemeState === 'light'? FrseAvatarGeneratorThemes.DARK : FrseAvatarGeneratorThemes.LIGHT);
+        actions.current.setTheme(settingsThemeState === 'light' ? FrseAvatarGeneratorThemes.DARK : FrseAvatarGeneratorThemes.LIGHT);
         if (settingsThemeState === FrseAvatarGeneratorThemes.LIGHT) {
             document.documentElement.setAttribute('data-theme', 'light');
         } else if (settingsThemeState === FrseAvatarGeneratorThemes.DARK) {
@@ -62,60 +62,65 @@ const Settings = ({ t }) => {
     };
 
     const handleLanguageChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
-        event.persist();
-        i18n.changeLanguage(i18n.language === 'en' ? 'de': 'en');
-    }
-
-    const settings: ISettingsElement[] = [
-        {
-            label: t('actions.settings.change-theme'),
-            type: 'button',
-            icon: settingsThemeState === FrseAvatarGeneratorThemes.LIGHT ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />,
-            action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleThemeChange(event)
-        },
-        {
-            label: t('actions.settings.github'),
-            type: 'link',
-            icon: <FontAwesomeIcon icon={faGithub} />,
-            url: "https://github.com/frse97"
-        },
-        {
-            label: t('actions.settings.mail-me'),
-            type: 'link',
-            icon: <FontAwesomeIcon icon={faEnvelopeSquare} />,
-            url: "mailto://sebastian.fries@outlook.com"
-        },
-        {
-            label: t('actions.settings.change-region'),
-            type: 'button',
-            icon: <FontAwesomeIcon icon={faGlobe} />,
-            action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleLanguageChange(event)
-        }
-    ]
-
-    const handleModeChange = () => {
-        if (mode === SettingsModes.COL) {
-            setMode(SettingsModes.EXP);
-        } else if (mode === SettingsModes.EXP) {
-            setMode(SettingsModes.COL);
+        if (i18n.language && i18n.language === 'de') {
+            i18n.changeLanguage('en');
+            actions.current.setRegion(FrseAvatarGeneratorSupportedLang.EN);
+        } else if (i18n.language && i18n.language === 'en') {
+            i18n.changeLanguage('de');
+            actions.current.setRegion(FrseAvatarGeneratorSupportedLang.DE);
         }
     }
 
-    const SettingsElement: React.FC<ISettingsElement> = props => {
-        const { label, icon, type, action, url } = props;
-        //@ts-ignore
-        return type === 'button' ? <button type="button" data-tooltip={label} className="settings-button settings-action" onClick={action} >{icon}</button> :
-            <a className="settings-link settings-action" data-tooltip={label} href={url} target="_blank">{icon}</a>
+const settings: ISettingsElement[] = [
+    {
+        label: t('actions.settings.change-theme'),
+        type: 'button',
+        icon: settingsThemeState === FrseAvatarGeneratorThemes.LIGHT ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />,
+        action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleThemeChange(event)
+    },
+    {
+        label: t('actions.settings.github'),
+        type: 'link',
+        icon: <FontAwesomeIcon icon={faGithub} />,
+        url: "https://github.com/frse97"
+    },
+    {
+        label: t('actions.settings.mail-me'),
+        type: 'link',
+        icon: <FontAwesomeIcon icon={faEnvelopeSquare} />,
+        url: "mailto://sebastian.fries@outlook.com"
+    },
+    {
+        label: t('actions.settings.change-region'),
+        type: 'button',
+        icon: <FontAwesomeIcon icon={faGlobe} />,
+        action: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleLanguageChange(event)
     }
+]
 
-    return <div className={classNames}>
-        <button className={iconWrapperClassName} onClick={handleModeChange}><FontAwesomeIcon icon={faCog} /></button>
-        <div className={containerClassName}>
-            {settings.map((el: ISettingsElement) => (
-                <SettingsElement key={settings.indexOf(el)} label={el.label} icon={el.icon} type={el.type} action={el.action} url={el.url} />
-            ))}
-        </div>
+const handleModeChange = () => {
+    if (mode === SettingsModes.COL) {
+        setMode(SettingsModes.EXP);
+    } else if (mode === SettingsModes.EXP) {
+        setMode(SettingsModes.COL);
+    }
+}
+
+const SettingsElement: React.FC<ISettingsElement> = props => {
+    const { label, icon, type, action, url } = props;
+    //@ts-ignore
+    return type === 'button' ? <button type="button" data-tooltip={label} className="settings-button settings-action" onClick={action} >{icon}</button> :
+        <a className="settings-link settings-action" data-tooltip={label} href={url} target="_blank">{icon}</a>
+}
+
+return <div className={classNames}>
+    <button className={iconWrapperClassName} onClick={handleModeChange}><FontAwesomeIcon icon={faCog} /></button>
+    <div className={containerClassName}>
+        {settings.map((el: ISettingsElement) => (
+            <SettingsElement key={settings.indexOf(el)} label={el.label} icon={el.icon} type={el.type} action={el.action} url={el.url} />
+        ))}
     </div>
+</div>
 
 
 }

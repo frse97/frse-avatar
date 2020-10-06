@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { avatarSetPartProperty } from "../store/avatar/avatar.actions";
 import { GenericProperties } from "./models/generic.model";
 import { FrseAvatarGeneratorThemes } from "../model/theme.model";
-import { settingsSetTheme } from './../store/settings/settings.actions';
+import { settingsSetRegion, settingsSetTheme } from './../store/settings/settings.actions';
+import { FrseAvatarGeneratorSupportedLang } from "./models/region.model";
 
 export const useActions = () => {
    const dispatch = useDispatch();
@@ -23,9 +24,17 @@ export const useActions = () => {
        [dispatch]
    );
 
+   const setRegion = useCallback(
+       (region: FrseAvatarGeneratorSupportedLang)=> {
+           dispatch(settingsSetRegion(region));
+       },
+       [dispatch]
+   )
+
    const actions = {
        setAvatarProperty,
-       setTheme
+       setTheme,
+       setRegion
    }
    return actions;
 }

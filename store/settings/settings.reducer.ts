@@ -2,8 +2,9 @@
 import { ISettingsState } from './settings.state';
 import * as SettingsActions from './settings.actions';
 import { FrseAvatarGeneratorThemes } from '../../model/theme.model';
-import { SETTINGS_SET_THEME } from './settings.type';
+import { SETTINGS_SET_REGION, SETTINGS_SET_THEME } from './settings.type';
 import produce, { Draft } from 'immer';
+import { FrseAvatarGeneratorSupportedLang } from '../../shared/models/region.model';
 const key = 'settings';
 // const string = localStorage.getItem(key);
 const string = undefined;
@@ -19,7 +20,8 @@ const getInitialState = (forceReset: boolean): ISettingsState => {
         initialState = data as ISettingsState;
     } else {
         initialState = {
-            theme: FrseAvatarGeneratorThemes.DARK
+            theme: FrseAvatarGeneratorThemes.DARK,
+            region: FrseAvatarGeneratorSupportedLang.DE
         };
     }
     return initialState;
@@ -30,6 +32,10 @@ export const settingsReducer = (state: ISettingsState = getInitialState(false), 
         switch (action.type) {
             case SETTINGS_SET_THEME: {
                 draft.theme = action.theme
+                return draft;
+            }
+            case SETTINGS_SET_REGION: {
+                draft.region = action.region
                 return draft;
             }
             default: 
